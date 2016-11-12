@@ -1,9 +1,12 @@
 from gensim import corpora, models, similarities
 from gensim.utils import simple_preprocess, ClippedCorpus
 from gensim.parsing.preprocessing import STOPWORDS
+import nltk.stem as stem
+
+porter = stem.PorterStemmer()
 
 def tokenize(text):
-    return [token for token in simple_preprocess(text) if token not in STOPWORDS]
+    return [porter.stem(token) for token in simple_preprocess(text) if token not in STOPWORDS]
 
 def build_lsa_model(corpus, dictionary, num_topics):
 	
