@@ -8,6 +8,7 @@ from gensim.parsing.preprocessing import STOPWORDS
 
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
+import nltk.stem as stem
 
 import csv
 from six import iteritems
@@ -16,9 +17,10 @@ from six import iteritems
 tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
 stops = [word for word in stopwords.words('english')]
 stops += ["=", "->", ".", ","]
+porter = stem.PorterStemmer()
 
 def tokenize(text):
-    return [token for token in simple_preprocess(text) if token not in STOPWORDS]
+    return [porter.stem(token) for token in simple_preprocess(text) if token not in STOPWORDS]
 
 bigram = Phrases(tokenize(line) for line in open('./data/corpus-abstracts.csv'))
 
@@ -59,5 +61,5 @@ token2id_map = dictionary.token2id
 # [(0, 1), (1, 1)] therefore reads: in the document "all partial results illustrated entropy", the words all (id=31) and partial (id=82) appear once; words that don't appear in the corpus are ignored
 print "Represent the following unseen \"document\":\"all partial results results illustrated entropy\""
 new_doc = "all partial results results illustrated entropy"
-new_vec = dictionary.doc2bow(new_doc.lower().split())
+new_vec = dictionary.doc2bow(tokenize(new_doc))
 print "Representation: ",new_vec
