@@ -2,6 +2,8 @@ import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 from gensim import corpora
+from gensim.utils import simple_preprocess
+from gensim.parsing.preprocessing import STOPWORDS
 
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
@@ -14,9 +16,12 @@ tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
 stops = [word for word in stopwords.words('english')]
 stops += ["=", "->", ".", ","]
 
+def tokenize(text):
+    return [token for token in simple_preprocess(text) if token not in STOPWORDS]
+
 #Make the dictionary, a collection of statistics about all tokens in the corpus
 #This is the mapping from words to their id's. It's the lookup table for features.
-dictionary = corpora.Dictionary(tokenizer.tokenize(line) for line in open('./data/corpus-abstracts.csv'))
+dictionary = corpora.Dictionary(tokenize(line) for line in open('./data/corpus-abstracts.csv'))
 
 # find stop words and words that appear only once
 stop_ids = [dictionary.token2id[stopword] for stopword in stops 
@@ -37,7 +42,7 @@ class BOW(object):
     def __iter__(self):
         for line in open('./data/corpus-abstracts.csv'):
             # assume there's one document per line, tokens separated by whitespace
-            yield dictionary.doc2bow(line.lower().split())
+            yield dictionary.doc2bow(tokenize(line))
 
 # Now we can make a bag of words and do something with it by iterating over it
 arxiv_bow = BOW()
