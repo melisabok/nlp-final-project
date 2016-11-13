@@ -34,7 +34,7 @@ stop_ids = [dictionary.token2id[stopword] for stopword in stops
 
 # remove stop words and words that appear only once
 dictionary.filter_tokens(stop_ids)
-dictionary.filter_extremes(no_above=0.1)
+dictionary.filter_extremes(no_above=0.05, no_below=10) #no_above=0.05, no_below=10 yielded good results
 # remove gaps in id sequence after words that were removed
 dictionary.compactify()
 

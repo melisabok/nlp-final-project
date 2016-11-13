@@ -51,12 +51,12 @@ import bibtexparser
 
 OAI = "{http://www.openarchives.org/OAI/2.0/}"
 ARXIV = "{http://arxiv.org/OAI/arXiv/}"
-
+YEAR = "2016"
 def harvest(arxiv="cs"):
     df = pd.DataFrame(columns=("title", "abstract", "categories", "created", "id", "doi"))
     base_url = "http://export.arxiv.org/oai2?verb=ListRecords&"
     url = (base_url +
-           "from=2012-01-01&until=2012-12-31&" +
+           "from="+YEAR+"-01-01&until="+YEAR+"-12-31&" +
            "metadataPrefix=arXiv&set=%s"%arxiv)
     
     while True:
@@ -118,4 +118,4 @@ def harvest(arxiv="cs"):
 
 df = harvest()
 
-df.to_csv('./data/papers_2012.csv', encoding = 'UTF-8')
+df.to_csv('./data/papers_'+YEAR+'.csv', encoding = 'UTF-8')

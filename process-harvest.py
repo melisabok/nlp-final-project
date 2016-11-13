@@ -6,7 +6,7 @@ with open('./data/corpus-abstracts.csv','wb') as x, open('./data/corpus-labels.c
     pass
 
 with open('./data/corpus-abstracts.csv','ab') as x, open('./data/corpus-labels.csv','ab') as y, open('./data/corpus-titles.csv','ab') as z:
-    for path in ['./data/papers_'+year+'.csv' for year in ['2012','2013']]:
+    for path in ['./data/papers_'+year+'.csv' for year in ['2012','2013','2014','2015','2016']]:
         with open(path) as f:
             reader = csv.reader(f)
             abstracts_writer = csv.writer(x,delimiter='\n')
