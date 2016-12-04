@@ -18,7 +18,9 @@ with open('./data/corpus-abstracts.csv','ab') as x, open('./data/corpus-labels.c
                 title = paper[1].replace('\n',' ')
                 abstract = paper[2].replace('\n',' ')
                 label = paper[3]
-
+                label = label.replace('[','')
+                label = label.replace(']','')
+                label = label.replace(' ','')
                 titles_writer.writerow([title])
                 abstracts_writer.writerow([abstract])
                 labels_writer.writerow([label])
