@@ -2,6 +2,12 @@ from gensim import corpora, models, similarities
 from gensim.utils import simple_preprocess, ClippedCorpus
 from gensim.parsing.preprocessing import STOPWORDS
 import nltk.stem as stem
+import argparse
+
+## Argument handling
+parser = argparse.ArgumentParser()
+parser.add_argument('-c', '--category', help="the arxiv category to use. example: cs.AI")
+args = parser.parse_args()
 
 porter = stem.PorterStemmer()
 
@@ -42,14 +48,17 @@ def evaluate(model, dictionary,text):
 
 if __name__ == '__main__':
     
-    corpus_name = 'corpus-titles-abstracts'
-    dictionary = corpora.Dictionary.load('data/%s.dict' % corpus_name)
-    corpus = corpora.MmCorpus('data/%s.mm' % corpus_name)
+    corpus_filename = 'corpus-titles-abstracts'
+    category = args.category
+    category_filename = corpus_filename.replace('corpus','category')
+
+    dictionary = corpora.Dictionary.load('data/%s/%s.dict' % (category,category_filename))
+    corpus = corpora.MmCorpus('data/%s/%s.mm' % (category,category_filename))
     lsi = build_lsa_model(corpus, dictionary, 10)
-    lsi.save('./data/%s.lsi' % corpus_name)
+    lsi.save('./data/%s/%s.lsi' % (category,category_filename))
     lda = build_lda_model(corpus, dictionary, 10)
-    lda.save('./data/%s.lda' % corpus_name)
+    lda.save('./data/%s/%s.lda' % (category,category_filename))
 
     text = "The standard dynamic programming solution for this problem computes the edit-distance between a pair of strings of total"
-    evaluate(lsi, dictionary, text)
-    evaluate(lda, dictionary, text)
+    lsi_topics = evaluate(lsi, dictionary, text)
+    lda_topics = evaluate(lda, dictionary, text)

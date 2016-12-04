@@ -49,7 +49,4 @@ if __name__ == '__main__':
     lsi.save('./data/%s.lsi' % corpus_name)
     lda = build_lda_model(corpus, dictionary, 10)
     lda.save('./data/%s.lda' % corpus_name)
-
-    text = "The standard dynamic programming solution for this problem computes the edit-distance between a pair of strings of total"
-    evaluate(lsi, dictionary, text)
-    evaluate(lda, dictionary, text)
+    
