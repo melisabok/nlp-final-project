@@ -38,7 +38,7 @@ Build LSA and LDA models for the whole corpus
 
 Get bag-of-words representations for individual categories
 
-    get-bow-by-category.py, <category> -->
+    get-bow-by-category.py -c <category> -->
     
     data/<category>/corpus-titles-abstracts.dict
     data/<category>/corpus-titles-abstracts.mm
@@ -47,7 +47,7 @@ Get bag-of-words representations for individual categories
 
 Build LSA and LDA models by category
     
-    get-models-by-category.py, <category> -->
+    get-models-by-category.py -c <category> -->
     
     data/<category>/corpus-titles-abstracts.lsi
     data/<category>/corpus-titles-abstracts.lsi.projection
