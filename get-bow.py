@@ -13,6 +13,9 @@ import nltk.stem as stem
 import csv
 from six import iteritems
 
+#Set corpus name. This lets us select from "corpus-titles", "corpus-abstracts", and "corpus-titles-abstracts"
+corpus_filename = 'corpus-titles-abstracts'
+
 #Set up tokenizer and stop words
 tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
 stops = [word for word in stopwords.words('english')]
@@ -22,11 +25,11 @@ porter = stem.PorterStemmer()
 def tokenize(text):
     return [porter.stem(token) for token in simple_preprocess(text) if token not in STOPWORDS]
 
-bigram = Phrases(tokenize(line) for line in open('./data/corpus-abstracts.csv'))
+bigram = Phrases(tokenize(line) for line in open('./data/%s.csv' % corpus_filename))
 
 #Make the dictionary, a collection of statistics about all tokens in the corpus
 #This is the mapping from words to their id's. It's the lookup table for features.
-dictionary = corpora.Dictionary(bigram[tokenize(line)] for line in open('./data/corpus-abstracts.csv'))
+dictionary = corpora.Dictionary(bigram[tokenize(line)] for line in open('./data/%s.csv' % corpus_filename))
 
 # find stop words and words that appear only once
 stop_ids = [dictionary.token2id[stopword] for stopword in stops 
@@ -39,18 +42,18 @@ dictionary.filter_extremes(no_above=0.05, no_below=10) #no_above=0.05, no_below=
 dictionary.compactify()
 
 # store the dictionary, for future reference
-dictionary.save('./data/corpus-abstracts.dict')
+dictionary.save('./data/%s.dict' % corpus_filename)
 
 # memory-friendly bag-of-words class
 class BOW(object):
     def __iter__(self):
-        for line in open('./data/corpus-abstracts.csv'):
+        for line in open('./data/%s.csv' % corpus_filename):
             # assume there's one document per line, tokens separated by whitespace
             yield dictionary.doc2bow(tokenize(line))
 
 # Now we can make a bag of words and do something with it by iterating over it
 arxiv_bow = BOW()
-corpora.MmCorpus.serialize('./data/corpus-abstracts.mm', arxiv_bow)  # store to disk, for later use
+corpora.MmCorpus.serialize('./data/%s.mm' % corpus_filename, arxiv_bow)  # store to disk, for later use
 
 #Create a token to feature ID map. Given a token, gives the feature ID of that token.
 token2id_map = dictionary.token2id
