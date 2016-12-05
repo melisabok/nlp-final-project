@@ -27,6 +27,8 @@ def tokenize(text):
 
 bigram = Phrases(tokenize(line) for line in open('./data/%s.csv' % corpus_filename))
 
+bigram.save('./data/bigram.bin')
+
 #Make the dictionary, a collection of statistics about all tokens in the corpus
 #This is the mapping from words to their id's. It's the lookup table for features.
 dictionary = corpora.Dictionary(bigram[tokenize(line)] for line in open('./data/%s.csv' % corpus_filename))
