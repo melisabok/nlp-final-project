@@ -1,0 +1,104 @@
+LDA topics:  5
+Perplexity -7.80481999051
+Evaluation topics
+set([u'noise', u'power', u'calculation', u'llr', u'maximum', u'channels', u'rate', u'achievable', u'optimum'])
+LDA topics:  15
+Perplexity -7.79473440957
+Evaluation topics
+set([u'information', u'noise', u'linear', u'transmission', u'llr', u'channels', u'gain', u'receiver', u'known'])
+LDA topics:  25
+Perplexity -7.83988197111
+Evaluation topics
+set([u'noise', u'linear', u'calculation', u'llr', u'work', u'rate', u'gain', u'known', u'likelihood'])
+LDA topics:  35
+Perplexity -7.89755526806
+Evaluation topics
+set([u'information', u'calculation', u'llr', u'channels', u'transmission', u'gain', u'receiver', u'likelihood'])
+LDA topics:  45
+Perplexity -7.94243098445
+Evaluation topics
+set([u'noise', u'true', u'llr', u'maximum', u'channels', u'rate', u'achievable', u'known', u'likelihood'])
+LDA topics:  55
+Perplexity -8.00233868593
+Evaluation topics
+set([u'calculation', u'llr', u'decoding', u'true', u'known', u'bit', u'likelihood', u'appears'])
+LDA topics:  65
+Perplexity -8.07010955103
+Evaluation topics
+set([u'noise', u'log', u'calculation', u'llr', u'channels', u'transmission', u'true', u'sense', u'likelihood'])
+LDA topics:  75
+Perplexity -8.11048426652
+Evaluation topics
+set([u'assume', u'llr', u'sense', u'maximum', u'channels', u'rate', u'receiver', u'optimum'])
+LDA topics:  85
+Perplexity -8.17999025191
+Evaluation topics
+set([u'noise', u'calculation', u'llr', u'maximum', u'channels', u'rate', u'achievable', u'receiver', u'optimum'])
+LDA topics:  95
+Perplexity -8.2280696376
+Evaluation topics
+set([u'likelihood', u'power', u'llr', u'approximate', u'channels', u'rate', u'receiver', u'optimum'])
+LDA topics:  105
+Perplexity -8.27758224735
+Evaluation topics
+set([u'identical', u'linear', u'power', u'llr', u'approximate', u'complicated', u'receiver', u'bit'])
+LDA topics:  115
+Perplexity -8.34081134953
+Evaluation topics
+set([u'likelihood', u'log', u'power', u'llr', u'channels', u'rate', u'receiver', u'optimum'])
+LDA topics:  125
+Perplexity -8.4047119003
+Evaluation topics
+set([u'optimum', u'calculation', u'llr', u'maximum', u'channels', u'rate', u'achievable', u'receiver', u'true'])
+LDA topics:  135
+Perplexity -8.45141813086
+Evaluation topics
+set([u'linear', u'llr', u'decoding', u'channels', u'receiver', u'output', u'bit', u'likelihood'])
+LDA topics:  145
+Perplexity -8.50378137229
+Evaluation topics
+set([u'log', u'power', u'llr', u'approximate', u'channels', u'optimum', u'output', u'likelihood'])
+LDA topics:  155
+Perplexity -8.55289276501
+Evaluation topics
+set([u'identical', u'noise', u'likelihood', u'power', u'transmission', u'llr', u'iterative', u'error', u'true'])
+LDA topics:  165
+Perplexity -8.59620903833
+Evaluation topics
+set([u'noise', u'power', u'calculation', u'llr', u'approximate', u'channels', u'rate', u'sense'])
+LDA topics:  175
+Perplexity -8.65249552272
+Evaluation topics
+set([u'identical', u'noise', u'likelihood', u'log', u'llr', u'iterative', u'approximate', u'complicated', u'optimum'])
+LDA topics:  185
+Perplexity -8.72767485526
+Evaluation topics
+set([u'identical', u'linear', u'power', u'calculation', u'llr', u'maximum', u'approximate', u'sense', u'optimum'])
+LDA topics:  195
+Perplexity -8.75093450872
+Evaluation topics
+set([u'likelihood', u'true', u'llr', u'sense', u'maximum', u'rate', u'receiver', u'optimum'])
+LDA topics:  205
+Perplexity -8.80635433837
+Evaluation topics
+set([u'noise', u'likelihood', u'linear', u'true', u'llr', u'channels', u'rate', u'optimum'])
+LDA topics:  215
+Perplexity -8.83689605307
+Evaluation topics
+set([u'likelihood', u'true', u'llr', u'receiver', u'approximate', u'maximum', u'channels', u'sense', u'optimum'])
+LDA topics:  225
+Perplexity -10.0373504694
+Evaluation topics
+set([u'identical', u'power', u'true', u'llr', u'sense', u'approximate', u'calculation', u'receiver', u'optimum'])
+LDA topics:  235
+Perplexity -25.1572951904
+Evaluation topics
+set([u'identical', u'noise', u'likelihood', u'llr', u'maximum', u'approximate', u'channels', u'rate', u'sense', u'true'])
+LDA topics:  245
+Perplexity -25.9978624745
+Evaluation topics
+set([u'linear', u'power', u'calculation', u'llr', u'maximum', u'approximate', u'channels', u'sense', u'optimum'])
+LDA topics:  255
+Perplexity -26.7118538164
+Evaluation topics
+set([u'identical', u'noise', u'power', u'calculation', u'llr', u'approximate', u'channels', u'receiver', u'optimum'])

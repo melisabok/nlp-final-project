@@ -12,7 +12,12 @@ def tokenize(text):
 
 def unstem(text,keyword_stems):
     words = [token for token in simple_preprocess(text) if token not in STOPWORDS]
-    keywords = set([a for a in words for c in keyword_stems if c in a])
+    keywords = set()
+
+    for k in keyword_stems:
+        word = next((w for w in words if k in w), None)
+        if word:
+            keywords.add(word)
     return keywords
 
 def save_obj(obj, name ):
